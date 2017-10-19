@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
-from selenium.webdriver.common.action_chains import ActionChains
-import time, unittest
+
+import  unittest
 
 def is_alert_present(wd):
     try:
@@ -12,20 +12,20 @@ def is_alert_present(wd):
 
 class authorization_future(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver()
+        self.wd = WebDriver(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
     
     def test_authorization_future(self):
         success = True
         wd = self.wd
+        self.open_home_page(wd)
+        self.login(wd, "149-027-332 58", "11043212")
+        self.edit_profile_info(success, wd)
+
+    def open_home_page(self, wd):
         wd.get("https://futurenpf.ru/personal/")
-        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[2]/input").click()
-        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[2]/input").clear()
-        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[2]/input").send_keys("149-027-332 58")
-        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[3]/div[2]/input").click()
-        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[3]/div[2]/input").clear()
-        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[3]/div[2]/input").send_keys("11043212")
-        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[4]/input").click()
+
+    def edit_profile_info(self, success, wd):
         wd.find_element_by_xpath("//main[@class='main']/section[2]/div/div[2]/div/div/div[2]/a").click()
         wd.find_element_by_link_text("Калитина Ирина").click()
         wd.find_element_by_link_text("Изменить контактные данные").click()
@@ -42,7 +42,16 @@ class authorization_future(unittest.TestCase):
         wd.find_element_by_css_selector("a.top-bar__arrow.js-lcopen").click()
         wd.find_element_by_link_text("Выйти").click()
         self.assertTrue(success)
-    
+
+    def login(self, wd, snils, password):
+        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[2]/input").click()
+        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[2]/input").clear()
+        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[2]/input").send_keys("%s" % snils)
+        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[3]/div[2]/input").click()
+        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[3]/div[2]/input").clear()
+        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[3]/div[2]/input").send_keys("%s" % password)
+        wd.find_element_by_xpath("//form[@class='lc-auth-form-component']/div[4]/input").click()
+
     def tearDown(self):
         self.wd.quit()
 

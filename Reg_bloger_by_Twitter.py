@@ -1,0 +1,58 @@
+# -*- coding: utf-8 -*-
+from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium.webdriver.common.action_chains import ActionChains
+import time, unittest
+
+from Auth_facebook_TRB import myWait
+
+
+def is_alert_present(wd):
+    try:
+        wd.switch_to_alert().text
+        return True
+    except:
+        return False
+
+class Reg_bloger_by_Twitter(unittest.TestCase):
+    def setUp(self):
+        self.wd = WebDriver(capabilities={"marionette": False})
+        self.wd.implicitly_wait(60)
+    
+    def test_Reg_bloger_by_Twitter(self):
+        success = True
+        wd = self.wd
+        wd.get("https://toprussianbloggers.ru/")
+        wd.find_element_by_link_text("Присоединиться к сообществу").click()
+        wd.find_element_by_css_selector("label.radio-inline.form-register__user-type__label ").click()
+        if not wd.find_element_by_id("i-blogerPOPUP").is_selected():
+            wd.find_element_by_id("i-blogerPOPUP").click()
+        wd.find_element_by_xpath("//a[contains(@onclick,'Twitter')]").click()
+        wd.find_element_by_css_selector("a.bx-ss-button.twitter-button").click()
+        for handle in wd.window_handles:
+            wd.switch_to.window(handle)
+        wd.find_element_by_id("username_or_email").clear()
+        wd.find_element_by_id("username_or_email").send_keys("coolcat89@mail.ru")
+        wd.find_element_by_id("password").clear()
+        wd.find_element_by_id("password").send_keys("11043212")
+        wd.find_element_by_id("allow").click()
+        self.assertTrue(success)
+        myWait()
+        for handle in wd.window_handles:
+            wd.switch_to.window(handle)
+        wd.find_element_by_xpath("//div[@class='live-sourse']/label[2]").click()
+        if not wd.find_element_by_xpath("//div[@class='live-sourse']/label[2]/input").is_selected():
+            wd.find_element_by_xpath("//div[@class='live-sourse']/label[2]/input").click()
+        wd.find_element_by_xpath("//div[@class='live-sourse']/label[3]").click()
+        if not wd.find_element_by_xpath("//div[@class='live-sourse']/label[3]/input").is_selected():
+            wd.find_element_by_xpath("//div[@class='live-sourse']/label[3]/input").click()
+        wd.find_element_by_xpath("//div[@class='live-sourse']/label[4]").click()
+        if not wd.find_element_by_xpath("//div[@class='live-sourse']/label[4]/input").is_selected():
+            wd.find_element_by_xpath("//div[@class='live-sourse']/label[4]/input").click()
+        wd.find_element_by_link_text("Выйти").click()
+        self.assertTrue(success)
+    
+    def tearDown(self):
+        self.wd.quit()
+
+if __name__ == '__main__':
+    unittest.main()

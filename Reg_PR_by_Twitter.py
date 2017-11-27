@@ -13,19 +13,19 @@ def is_alert_present(wd):
     except:
         return False
 
-class Reg_bloger_by_Twitter(unittest.TestCase):
+class Reg_PR_by_Twitter(unittest.TestCase):
     def setUp(self):
         self.wd = WebDriver(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
     
-    def test_Reg_bloger_by_Twitter(self):
+    def test_Reg_PR_by_Twitter(self):
         success = True
         wd = self.wd
         wd.get("https://toprussianbloggers.ru/")
         wd.find_element_by_link_text("Присоединиться к сообществу").click()
-        wd.find_element_by_css_selector("label.radio-inline.form-register__user-type__label ").click()
-        if not wd.find_element_by_id("i-blogerPOPUP").is_selected():
-            wd.find_element_by_id("i-blogerPOPUP").click()
+        wd.find_element_by_xpath("//label[@for='i-prPOPUP']").click()
+        if not wd.find_element_by_id("i-prPOPUP").is_selected():
+            wd.find_element_by_id("i-prPOPUP").click()
         wd.find_element_by_xpath("//a[contains(@onclick,'Twitter')]").click()
         wd.find_element_by_css_selector("a.bx-ss-button.twitter-button").click()
         for handle in wd.window_handles:
@@ -44,9 +44,9 @@ class Reg_bloger_by_Twitter(unittest.TestCase):
         wd = self.wd
         wd.find_element_by_link_text("Выйти").click()
         self.assertTrue(success)
-
+    
     def tearDown(self):
         self.wd.quit()
 
-    if __name__ == '__main__':
-        unittest.main()
+if __name__ == '__main__':
+    unittest.main()

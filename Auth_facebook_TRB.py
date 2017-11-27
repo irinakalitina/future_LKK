@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 import time, unittest
 
 
@@ -19,8 +19,9 @@ def myWait():
 
 
 class Auth_facebook_TRB(unittest.TestCase):
+
     def setUp(self):
-        self.wd = WebDriver(capabilities={"marionette": False})
+        self.wd = webdriver.Firefox(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
 
     def test_Auth_facebook_TRB(self):

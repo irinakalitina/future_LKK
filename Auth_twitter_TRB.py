@@ -48,7 +48,7 @@ class Auth_twitter_TRB(unittest.TestCase):
         wd.find_element_by_link_text("Кампании").click()
         wd.find_element_by_link_text("Выйти").click()
         self.assertTrue(success)
-        myWait()
+
     def tearDown(self):
         self.wd.quit()
 

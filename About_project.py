@@ -24,7 +24,7 @@ class About_project(unittest.TestCase):
         self.assertIn("О проекте", wd.title)
         wd.find_element_by_name("EMAIL").click()
         wd.find_element_by_name("EMAIL").clear()
-        wd.find_element_by_name("EMAIL").send_keys("coolcat11@mail.ru")
+        wd.find_element_by_name("EMAIL").send_keys("maria12@toprussianbloggers.ru")
         wd.find_element_by_xpath("//form[@id='subscribtion-form']//button[.='Подписаться']").click()
         if wd.find_element_by_css_selector("div.alert.alert-success"):
            print ("Element exists")

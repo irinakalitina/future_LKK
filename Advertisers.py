@@ -31,9 +31,8 @@ class Advertisers(unittest.TestCase):
             wd.switch_to.window(handle)
         wd.get("https://toprussianbloggers.ru/upload/docs/prices.pdf")
         wd.find_element_by_id("download").click()
-        alert = wd.switch_to.alert()
-        alert.accept()
-
+        #alert = wd.switch_to.alert()
+        #alert.accept()
         for handle in wd.window_handles:
             wd.switch_to.window(handle)
         wd.get("https://toprussianbloggers.ru/adv/")

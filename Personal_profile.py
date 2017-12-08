@@ -43,7 +43,7 @@ class Personal_profile(unittest.TestCase):
         wd.find_element_by_link_text("Maria").click()
         wd.find_element_by_link_text("Друзья").click()
         wd.find_element_by_link_text("Вы подписаны (0)").click()
-        wd.find_element_by_link_text("Заявки в друзья (0)").click()
+
         wd.find_element_by_link_text("Вы отправили заявку (0)").click()
         wd.find_element_by_name("EMAIL").click()
         wd.find_element_by_name("EMAIL").clear()

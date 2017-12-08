@@ -38,10 +38,10 @@ class Auth_facebook_TRB(unittest.TestCase):
 
         wd.find_element_by_id("email").click()
         wd.find_element_by_id("email").clear()
-        wd.find_element_by_id("email").send_keys("kalitina.irina@rambler.ru")
+        wd.find_element_by_id("email").send_keys("apavlova@toprussianbloggers.ru")
         wd.find_element_by_id("pass").click()
         wd.find_element_by_id("pass").clear()
-        wd.find_element_by_id("pass").send_keys("Rjkbptq1989")
+        wd.find_element_by_id("pass").send_keys("Lastchance")
         wd.find_element_by_id("u_0_0").click()
         self.assertTrue(success)
         myWait()

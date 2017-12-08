@@ -28,7 +28,7 @@ class Reg_PR_by_email(unittest.TestCase):
         wd.find_element_by_id("NAME").send_keys("Katya")
         wd.find_element_by_id("EMAIL").click()
         wd.find_element_by_id("EMAIL").clear()
-        wd.find_element_by_id("EMAIL").send_keys("katya3@toprussianblogers.ru")
+        wd.find_element_by_id("EMAIL").send_keys("katya4@toprussianblogers.ru")
         wd.find_element_by_id("PASSWORD").click()
         wd.find_element_by_id("PASSWORD").clear()
         wd.find_element_by_id("PASSWORD").send_keys("123456")

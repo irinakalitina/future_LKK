@@ -31,9 +31,9 @@ class Reg_bloger_by_VK(unittest.TestCase):
         for handle in wd.window_handles:
             wd.switch_to.window(handle)
         wd.find_element_by_name("email").clear()
-        wd.find_element_by_name("email").send_keys("kalitina.irina@rambler.ru")
+        wd.find_element_by_name("email").send_keys("login")
         wd.find_element_by_name("pass").clear()
-        wd.find_element_by_name("pass").send_keys("Rjkbptq1989")
+        wd.find_element_by_name("pass").send_keys("password")
         wd.find_element_by_id("install_allow").click()
         self.assertTrue(success)
         myWait()

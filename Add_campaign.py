@@ -48,8 +48,6 @@ class Add_campaign(unittest.TestCase):
         wd.find_element_by_id("SET_TO").send_keys("26.12.2017")
         wd.find_element_by_css_selector("input.select2-search__field").click()
         wd.find_element_by_xpath("//span[contains(@aria-activedescedant,'select2-DIRECTION-result')]").click()
-        #select = Select(wd.find_element_by_xpath("//li[contains(@title,'Психология')]").click())
-        #select.select_by_visible_text("Психология")
         wd.find_element_by_id("select2-DIRECTION-result-t40z-23").click()
         wd.find_element_by_id("select2-CITY-container").click()
         wd.find_element_by_id("select2-BRAND-container").click()

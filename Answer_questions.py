@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from selenium.webdriver.firefox.webdriver import WebDriver
+from selenium import webdriver
 from selenium.webdriver.common.action_chains import ActionChains
 import time, unittest
 
@@ -12,7 +12,7 @@ def is_alert_present(wd):
 
 class News_questions(unittest.TestCase):
     def setUp(self):
-        self.wd = WebDriver(capabilities={"marionette": False})
+        self.wd = webdriver.Firefox(capabilities={"marionette": False})
         self.wd.implicitly_wait(60)
     
     def test_News_questions(self):

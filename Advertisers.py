@@ -31,8 +31,6 @@ class Advertisers(unittest.TestCase):
             wd.switch_to.window(handle)
         wd.get("https://toprussianbloggers.ru/upload/docs/prices.pdf")
         wd.find_element_by_id("download").click()
-        #alert = wd.switch_to.alert()
-        #alert.accept()
         for handle in wd.window_handles:
             wd.switch_to.window(handle)
         wd.get("https://toprussianbloggers.ru/adv/")
@@ -53,7 +51,7 @@ class Advertisers(unittest.TestCase):
         wd.find_element_by_id("form-1-PHONE").send_keys("+79154563282")
         wd.find_element_by_id("form-1-EMAIL").click()
         wd.find_element_by_id("form-1-EMAIL").clear()
-        wd.find_element_by_id("form-1-EMAIL").send_keys("coolcat2017@mail.ru")
+        wd.find_element_by_id("form-1-EMAIL").send_keys("top2017@mail.ru")
         wd.find_element_by_id("form-1-MESSAGE").click()
         wd.find_element_by_id("form-1-MESSAGE").clear()
         wd.find_element_by_id("form-1-MESSAGE").send_keys("Добрый день")

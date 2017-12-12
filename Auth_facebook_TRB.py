@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from selenium import webdriver
+from settings import *
 import time, unittest
+
 
 
 def is_alert_present(wd):

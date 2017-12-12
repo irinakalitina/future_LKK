@@ -2,6 +2,7 @@
 
 from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
+from settings import *
 import unittest
 
 from Auth_facebook_TRB import myWait

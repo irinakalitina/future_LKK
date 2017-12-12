@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.common.action_chains import ActionChains
+from settings import *
 import time, unittest
 
 def is_alert_present(wd):
@@ -18,7 +19,7 @@ class About_project(unittest.TestCase):
     def test_About_project(self):
         success = True
         wd = self.wd
-        wd.get("https://toprussianbloggers.ru/")
+        wd.get("SITE NAME")
         wd.find_element_by_css_selector("button.navbar-toggle.collapsed").click()
         wd.find_element_by_link_text("О проекте").click()
         self.assertIn("О проекте", wd.title)
